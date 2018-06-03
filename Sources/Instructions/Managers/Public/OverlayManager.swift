@@ -187,3 +187,13 @@ internal protocol OverlayManagerDelegate: Snapshottable {
     /// Called when the overlay received a tap event.
     func didReceivedSingleTap()
 }
+
+public protocol OverlayManagerExpose {
+    var parentView: UIView { get }
+}
+
+extension OverlayManager: OverlayManagerExpose {
+    public var parentView: UIView {
+        return overlayView
+    }
+}
